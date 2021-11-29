@@ -1,0 +1,603 @@
+:root {
+  --White: hsl(0, 0%, 100%);
+  --Black: hsl(0, 0%, 0%);
+  --Dark-Gray: hsl(0, 0%, 55%);
+  --Very-Dark-Gray: hsl(0, 0%, 41%);
+}
+
+html {
+  font-size: 15px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+}
+
+/* Hero */
+.hero {
+  height: 40.5rem;
+  width: 100%;
+  background: url("../src/images/desktop/image-hero.jpg") center no-repeat;
+  background-size: cover;
+  padding: 4rem 11.4%;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6.5rem;
+}
+
+.hero h1 {
+  margin-right: 41.5%;
+  padding: 0.5em;
+  font-size: 5vw;
+  font-weight: 300;
+  color: var(--White);
+  text-transform: uppercase;
+  border: 2px solid white;
+}
+/* Hero - End */
+
+/* Navbar */
+nav {
+  width: 25rem;
+}
+
+.hero .navbar-nav,
+footer .navbar-nav {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ham-menu,
+.ham-content {
+  display: none;
+}
+
+.nav-item {
+  font-size: 1.05rem;
+  font-family: "Alata", sans-serif;
+  font-weight: 400;
+  color: var(--White);
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
+}
+
+.nav-item::after {
+  content: "";
+  display: none;
+  height: 2px;
+  background-color: var(--White);
+  position: absolute;
+  bottom: -8px;
+  animation: anime-nav 0.1s ease-in-out forwards;
+}
+
+.nav-item:hover::after {
+  display: block;
+}
+
+@keyframes anime-nav {
+  from {
+    width: 30%;
+    left: 40%;
+  }
+  to {
+    width: 50%;
+    left: 25%;
+  }
+}
+/* Navbar - End */
+
+/* About */
+.about {
+  height: 45rem;
+  width: 100%;
+  padding: 8rem 11.4%;
+}
+
+.about-content {
+  position: relative;
+}
+
+.about-img {
+  width: 64%;
+}
+
+.about-text {
+  position: absolute;
+  top: 13vw;
+  left: 38.5vw;
+  width: 64%;
+  padding: 4.5em;
+  background-color: var(--White);
+}
+
+.about-text h2 {
+  font-size: 3vw;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: var(--Black);
+  margin-bottom: 2rem;
+}
+
+.about-text p {
+  font-family: "Alata", sans-serif;
+  font-size: min(2vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.6em;
+  color: var(--Dark-Gray);
+}
+/* About - End*/
+
+/* Creation */
+.creation {
+  height: 80vw;
+  padding: 0 11.4%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.creation > h2 {
+  order: 1;
+  font-size: 3vw;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: var(--Black);
+}
+
+.creation > button {
+  order: 2;
+  width: 10rem;
+  height: 3rem;
+  font-family: "Alata", sans-serif;
+  font-weight: 400;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  background-color: var(--White);
+  color: var(--Black);
+  border: 2px solid var(--Dark-Gray);
+  cursor: pointer;
+}
+
+.creation > button:hover {
+  background-color: var(--Black);
+  color: var(--White);
+  border: 2px solid var(--Black);
+}
+
+.desktop-gallery {
+  order: 3;
+  align-self: flex-start;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(autofill, 1fr);
+  gap: 3vw;
+}
+
+.mobile-gallery {
+  display: none;
+}
+
+.gallery-item {
+  position: relative;
+  cursor: pointer;
+}
+
+.gallery-item::before {
+  content: "";
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: anime-gallery 0.4s ease-in-out forwards;
+}
+
+.gallery-item:hover::before {
+  display: block;
+}
+
+@keyframes anime-gallery {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.gallery-item h2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10.5em 1em 0;
+  color: var(--White);
+  font-size: 2.2vw;
+  font-weight: 300;
+  text-transform: uppercase;
+  transition: all 0.4s ease-out;
+}
+
+.gallery-item h2:hover {
+  color: var(--Black);
+}
+/* Creation - End */
+
+/* Footer */
+footer {
+  height: 11rem;
+  padding: 1rem 11.4%;
+  background-color: var(--Black);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-logo {
+  order: 1;
+  margin-right: 35%;
+}
+
+.footer-icons {
+  order: 2;
+}
+
+.footer-icon {
+  margin: 0 10px;
+  display: inline-block;
+  position: relative;
+}
+
+.footer-icon::after {
+  content: "";
+  display: none;
+  height: 2px;
+  background-color: var(--White);
+  position: absolute;
+  bottom: -5px;
+  animation: anime-foot 0.2s ease-in-out forwards;
+}
+
+.footer-icon:hover::after {
+  display: block;
+}
+
+@keyframes anime-foot {
+  from {
+    width: 30%;
+    left: 40%;
+  }
+  to {
+    width: 100%;
+    left: 0;
+  }
+}
+
+.icon {
+  cursor: pointer;
+}
+
+footer nav {
+  order: 3;
+}
+
+footer p {
+  order: 4;
+  font-family: "Alata", sans-serif;
+  font-weight: 400;
+  font-size: 1.05rem;
+  color: var(--Dark-Gray);
+}
+/* Footer - End */
+
+@media screen and (max-width: 1024px) {
+  header {
+    margin-bottom: 14rem;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  nav {
+    width: 20rem;
+  }
+
+  .nav-item {
+    font-size: 1rem;
+  }
+
+  .nav-logo,
+  .footer-logo {
+    width: 10rem;
+  }
+
+  footer {
+    height: 9rem;
+  }
+
+  .icon {
+    width: 1.3rem;
+  }
+
+  footer p {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero,
+  .about,
+  .creation,
+  footer {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+
+  header {
+    margin-bottom: 14rem;
+  }
+
+  .about {
+    height: 40rem;
+  }
+
+  .creation {
+    height: 50rem;
+  }
+}
+
+@media screen and (max-width: 686px) {
+  .hero,
+  .about,
+  .creation,
+  footer {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+
+  .creation {
+    height: 45rem;
+  }
+
+  .creation > button {
+    width: 9rem;
+    height: 2.75rem;
+    font-size: 1rem;
+  }
+
+  .nav-logo,
+  .footer-logo {
+    width: 9rem;
+  }
+
+  footer nav {
+    width: 18rem;
+  }
+
+  footer .nav-item {
+    font-size: 0.9rem;
+  }
+
+  .icon {
+    width: 1.2rem;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .hero,
+  .about,
+  .creation,
+  footer {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .hero {
+    height: auto;
+    background: url("../src/images/mobile/image-hero.jpg") center no-repeat;
+    background-size: cover;
+    padding-top: 10vw;
+    position: relative;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0;
+  }
+
+  .hero h1 {
+    margin-right: 0;
+    font-size: 12vw;
+    margin: 3.5em 0;
+  }
+
+  nav {
+    width: auto;
+  }
+
+  .hero .navbar-nav {
+    display: none;
+  }
+
+  .nav-logo {
+    width: 38vw;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero .ham-menu {
+    display: block;
+    margin-right: -52%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero .ham-content {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding-top: 55%;
+    background-color: var(--Black);
+  }
+
+  .hero .ham-content .nav-item {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 6vw;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: var(--White);
+    pointer-events: none;
+    margin-bottom: 8vw;
+    padding-left: 8vw;
+  }
+
+  .about {
+    height: auto;
+    padding-top: 20vw;
+    padding-bottom: 10vw;
+  }
+
+  .about-content {
+    position: static;
+  }
+
+  .about-img {
+    width: 100%;
+  }
+
+  .about-text {
+    position: static;
+    width: 100%;
+    text-align: center;
+    padding: 1em;
+  }
+
+  .about-text h2 {
+    font-size: 7vw;
+    margin: 1em 0 0.9em;
+  }
+
+  .about-text p {
+    font-size: max(3vw, 1rem);
+  }
+
+  .creation {
+    height: auto;
+    justify-content: center;
+    padding-bottom: 6em;
+  }
+
+  .creation h2 {
+    order: 1;
+    font-size: 8vw;
+    padding: 1em 0;
+  }
+
+  .desktop-gallery {
+    display: none;
+  }
+
+  .mobile-gallery {
+    order: 2;
+    width: 100%;
+    align-self: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 3.5vw;
+    padding-bottom: 3em;
+  }
+
+  .gallery-item h2 {
+    padding: 3em 8em 1em 1em;
+    font-size: 6vw;
+  }
+
+  .creation > button {
+    order: 3;
+    width: 13rem;
+    height: 3.25rem;
+    font-size: 1.6rem;
+  }
+
+  footer {
+    flex-flow: column nowrap;
+    height: 30rem;
+    width: 100%;
+    padding: 3.5rem 2%;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    margin: 0;
+    order: 1;
+    width: 11rem;
+  }
+
+  .footer-icons {
+    order: 3;
+    justify-self: flex-end;
+  }
+
+  .icon {
+    width: 1.8rem;
+  }
+
+  footer nav {
+    order: 2;
+  }
+
+  footer nav .navbar-nav {
+    height: 12rem;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+
+  footer .nav-item {
+    font-size: 1.15rem;
+  }
+
+  footer p {
+    order: 4;
+    font-size: 1.1rem;
+  }
+}
